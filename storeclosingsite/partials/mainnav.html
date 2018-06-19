@@ -1,0 +1,22 @@
+
+    <!-- header starts -->
+<header  ng-controller="navController as nav">
+  <div class=""><a href="index.html"><img class="" src="" alt="Store closing logo"></a></div>          
+    <!-- navigation -->
+  <nav>
+    <div class="">
+      <form class="" action="#" method="post">
+        <div class="" maxlength="13" ng-show="nav.email" ng-cloak><a href="#" class="toggle-menu">{{nav.email}}</a></div>
+        <div class="" ng-show="!nav.email" ng-cloak><a href="login.html">join <span>|</span> login</a></div>
+      </form>
+      <div class="">
+      <ul>
+        <li><a href="index.html">Closing</a></li>       
+        <li><a href="createstorepost.html">Create Post</a></li>
+        <li><a href="profile.html">Profile</a></li>
+        <li ng-if="nav.userInfo.userEmail"><a href="" ng-click="nav.logout()">logout</a></li>
+      </ul>
+      </div>
+    </div>
+  </nav>
+</header>

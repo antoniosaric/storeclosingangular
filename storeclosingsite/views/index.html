@@ -1,0 +1,41 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Store Closing</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">     
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.min.js"></script>     
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular-resource.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular-resource.js"></script>
+
+  <script src="../scripts/storeclosingapp.js"></script>
+  <script src="../controllers/accountController.js"></script>
+  <script src="../controllers/mainPageController.js"></script>
+  <script src="../partials/navController.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0NBUJ_Aov8m67I897XTqz3pWC7ATfMQ0&libraries=places"></script> 
+
+
+</head>
+<body class="" ng-app="storeclosing" ng-controller="mainPageController as ctlr">
+  <div ng-include="'../partials/mainnav.html'"></div>    
+
+  <h1>Store Closing</h1>
+    <div>
+      <div>Please Enter A Location</div>
+      <input type="text"  placeholder="location" id="location" ng-model="location" id="location" name="location" class="rfpfield" value="" autocomplete="false" googleplace/> 
+    </div>
+    <div ng-repeat="post in ctlr.totalArray" ng-cloak>
+      <a class="" ng-href='post.html?postid={{post.id}}'>
+        <div class="">{{post.storename}} 
+        </div>
+      </a>
+    </div>
+
+</body>
+</html>
