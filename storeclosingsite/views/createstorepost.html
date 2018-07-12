@@ -15,13 +15,13 @@
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular-resource.js"></script>
 
   <script src="../scripts/storeclosingapp.js"></script>
-  <script src="../controllers/accountController.js"></script>
+  <script src="../controllers/postController.js"></script>
   <script src="../partials/navController.js"></script>
 
 
 </head>
 
-<body class="" ng-app="storeclosing" ng-controller="accountControl as ctlr">
+<body class="" ng-app="storeclosing" ng-controller="postController as ctlr">
 
   <h1>Create Store Closing Post</h1>
       <div ng-include="'../partials/mainnav.html'"></div>    
@@ -38,18 +38,17 @@
         <p class="">
           <input type="text" placeholder="add area code" ng-model="areacode" id="areacode" name="areacode" class="" value="" />
         </p>
-        <p class="">
-          <input type="text" placeholder="percent off" ng-model="percentoff" id="percentoff" name="percentoff" class="" value="" />
+        <p class=""> Percent Off:
+          <select id='percentlow' ng-model="percentlow" >
+            <option value="{{percent}}" ng-repeat="percent in ctlr.percentOffArray">{{percent}}</option>
+          </select>
+          <span>to</span>
+          <select id='percenthigh' ng-model="percenthigh" >
+            <option value="{{percent}}" ng-repeat="percent in ctlr.percentOffArray">{{percent}}</option>
+          </select>          
         </p>
         <p> Select they type of store
-          <select multiple>
-            <option value="volvo">Adult Clothing</option>
-            <option value="saab">Saab</option>
-            <option value="opel">Opel</option>
-            <option value="audi">Audi</option>
-          </select>
         </p>
-
       </div>    
       <p class=""><input class="" type="button" value="create post" ng-click=""/></p>
     </fieldset>    
