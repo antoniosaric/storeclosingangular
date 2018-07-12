@@ -39,16 +39,20 @@
           <input type="text" placeholder="add area code" ng-model="areacode" id="areacode" name="areacode" class="" value="" />
         </p>
         <p class=""> Percent Off:
-          <select id='percentlow' ng-model="percentlow" >
+          <select id='percentlow' ng-model="percentlow">
             <option value="{{percent}}" ng-repeat="percent in ctlr.percentOffArray">{{percent}}</option>
           </select>
           <span>to</span>
-          <select id='percenthigh' ng-model="percenthigh" >
+          <select id='percenthigh' ng-model="percenthigh">
             <option value="{{percent}}" ng-repeat="percent in ctlr.percentOffArray">{{percent}}</option>
           </select>          
         </p>
-        <p> Select they type of store
-        </p>
+        <p> Select they type of store</p>
+        <div>
+          <label ng-repeat="storeType in ctlr.storeTypes">
+              <input type="checkbox" ng-model="storeType"> {{storeType}} 
+          </label>
+        </div>       
       </div>    
       <p class=""><input class="" type="button" value="create post" ng-click=""/></p>
     </fieldset>    
