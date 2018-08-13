@@ -26,7 +26,7 @@ try
   if ( !mysqli_connect_error() )
   {
     //Get the variables here end
-    $sql = "SELECT *, storepost.id AS storeId FROM storepost INNER JOIN storepost_type_mm ON storepost_type_mm.storepostId= storepost.id INNER JOIN storeposttype ON storepost_type_mm.storeposttypeId=storeposttype.id ".$string;
+    $sql = "SELECT DISTINCT *, storepost.id AS storeId FROM storepost INNER JOIN storepost_type_mm ON storepost_type_mm.storepostId= storepost.id INNER JOIN storeposttype ON storepost_type_mm.storeposttypeId=storeposttype.id ".$string;
 
     $result = $conn->query($sql);
 

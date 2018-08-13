@@ -25,43 +25,32 @@ if($JWT == assignVerifyToken((string)$participantId))
   try {
 
     $conn = new mysqli($db_host, $db_username, $db_pass, $db_name);
-    $sql2 = "INSERT INTO users(email , password, secure_key, timeStampField) VALUES (?,?,?,?)";  
-
-    $alreadyRegisteredSql = "SELECT * , users.email FROM users WHERE email = ?";
+    $sql = "INSERT INTO storepost(storename, address, city, state, postalCode, storeclosedate, currentpercentofflow, currentpercentoffhigh, timeStampField) VALUES (?,?,?,?,?,?,?,?,?)";  
 
     if ( !mysqli_connect_error() )
     {   
-      $prepared = $conn->prepare($alreadyRegisteredSql);
-      $prepared->bind_param('s', $email);
+      $prepared = $conn->prepare($sql);
+      $prepared->bind_param('sssssssss', $email);
       $result =$prepared->execute(); 
       $getresult = $prepared->get_result();
       $row = $getresult->fetch_assoc();
       $prepared->close();
 
-      if( !$row["email"])
-      { 
-        if(strlen($email) > 4)
-        {
+      if(strlen($getresult))
+      {
           $prepared2 = $conn->prepare($sql2);
           $prepared2->bind_param("ssis", $email, $password, $null, $date);
           $result2=$prepared2->execute(); 
           $usersId = $conn->insert_id;
           $prepared2->close();
 
-          $data[] = array("status" => 200, "userId" => $usersId, "message" => "Registered email and password", 'JWT' => assignVerifyToken((string)$usersId), 'email' => $email );  
+          $data[] = array("status" => 200, "message" => "created post" );  
 
           echo json_encode($data);
-        }
-        else
-        {
-          //length of email is 0
-          $data = ['message' => "Not An Email Address"];
-          echo json_encode($data);
-        }  
       }
       else 
       {         
-        $data = ['message' => "Account With That Email Exists, Cannot Register"];
+        $data = ['message' => "could not make post"];
 
         // clear the old headers
         header_remove();

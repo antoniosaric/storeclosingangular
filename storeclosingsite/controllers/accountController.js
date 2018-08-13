@@ -7,7 +7,7 @@ angular.module('storeclosing').controller('accountControl', function($scope, $ro
 //****************************              SET SESSION STORAGE            ****************************
  
   $window.sessionStorage.userInfo ? vm.userInfo= JSON.parse($window.sessionStorage.userInfo) : vm.userInfo = {};
-  $window.sessionStorage.userPosts ? vm.userPosts= JSON.parse($window.sessionStorage.userPosts) : vm.userPosts = [];
+  $window.sessionStorage.userPosts ? vm.userPosts = JSON.parse($window.sessionStorage.userPosts) : vm.userPosts = [];
 
   console.log(vm.userInfo)
   

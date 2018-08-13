@@ -25,11 +25,12 @@
   <div ng-include="'../partials/mainnav.html'"></div>    
   <h1>Welcome {{ctlr.userInfo.userEmail}}</h1>
 
-<!--     <div ng-repeat="" ng-cloak>
+  <h1>Your Posts</h1>
+    <div ng-repeat="post in ctlr.userPosts" ng-cloak>
       <div>
-        <a class="" ng-href=''></a>
+        <a class="" ng-href="">{{post}}</a><a href="">edit</a>
       </div>
-    </div> -->
+    </div>
 
 </body>
 </html>

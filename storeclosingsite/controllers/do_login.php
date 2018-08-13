@@ -9,10 +9,10 @@ include_once('../assignVerifyJWT.php');
 
 $postdata = file_get_contents("php://input");
 $request = json_decode($postdata);
-// $email = $request->email;
-$email = 'saric.tony@gmail.com';
-// $pass = $request->password;
-$pass = 'asdf';
+$email = $request->email;
+// $email = 'saric.tony@gmail.com';
+$pass = $request->password;
+// $pass = 'asdf';
 $rowcount = 0;
 $data = [ [ ] , [ ] ]; 
 // [ [ user info ] , [ post info ] ]
